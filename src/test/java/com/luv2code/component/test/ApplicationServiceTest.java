@@ -39,7 +39,7 @@ class ApplicationServiceTest {
     }
 
     @Test
-    void assertEqualsTestAddGrades(){
+    void assertEqualsTestAddGrades() {
 
         when(applicationDaoMock.addGradeResultsForSingleClass(studentGrades.getMathGradeResults()))
                 .thenReturn(100.0);
@@ -53,26 +53,40 @@ class ApplicationServiceTest {
     }
 
     @Test
-    void throwRuntimeException(){
+    void throwRuntimeException() {
         CollegeStudent student = applicationContext.getBean(CollegeStudent.class);
         doThrow(new RuntimeException("runtime")).when(applicationDaoMock).checkNull(student);
         RuntimeException runtimeException = assertThrows(RuntimeException.class, () -> {
             applicationServiceUnderTest.checkNull(student);
         });
-        assertEquals(runtimeException.getMessage(),"runtime");
-        verify(applicationDaoMock,times(1)).checkNull(student);
+        assertEquals(runtimeException.getMessage(), "runtime");
+        verify(applicationDaoMock, times(1)).checkNull(student);
     }
 
     @Test
-    void testFindGPA(){
+    void testFindGPA() {
         when(applicationDaoMock.findGradePointAverage(studentGrades.getMathGradeResults())).thenReturn(8.2);
 
         double gradePointAverage = applicationServiceUnderTest.findGradePointAverage(collegeStudent.getStudentGrades().getMathGradeResults());
-        assertEquals(8.2,gradePointAverage);
+        assertEquals(8.2, gradePointAverage);
     }
 
     @Test
-    void testAssertNotNull(){
+    void stubbingConsecutiveCalls() {
+        CollegeStudent student = applicationContext.getBean(CollegeStudent.class);
+        when(applicationDaoMock.checkNull(student)).thenThrow(new RuntimeException())
+                .thenReturn("Do not throw exception second time");
+
+        assertThrows(RuntimeException.class, () -> {
+            applicationServiceUnderTest.checkNull(student);
+        });
+
+        assertEquals(applicationServiceUnderTest.checkNull(student), "Do not throw exception second time");
+        verify(applicationDaoMock, times(2)).checkNull(student);
+    }
+
+    @Test
+    void testAssertNotNull() {
         when(applicationDaoMock.checkNull(studentGrades.getMathGradeResults())).thenReturn(true);
         assertNotNull(applicationServiceUnderTest.checkNull(collegeStudent.getStudentGrades().getMathGradeResults()));
     }
