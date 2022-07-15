@@ -53,6 +53,17 @@ class ApplicationServiceTest {
     }
 
     @Test
+    void throwRuntimeException(){
+        CollegeStudent student = applicationContext.getBean(CollegeStudent.class);
+        doThrow(new RuntimeException("runtime")).when(applicationDaoMock).checkNull(student);
+        RuntimeException runtimeException = assertThrows(RuntimeException.class, () -> {
+            applicationServiceUnderTest.checkNull(student);
+        });
+        assertEquals(runtimeException.getMessage(),"runtime");
+        verify(applicationDaoMock,times(1)).checkNull(student);
+    }
+
+    @Test
     void testFindGPA(){
         when(applicationDaoMock.findGradePointAverage(studentGrades.getMathGradeResults())).thenReturn(8.2);
 
