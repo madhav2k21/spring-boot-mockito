@@ -1,10 +1,10 @@
-package com.luv2code.component.test;
+package com.techleads.app;
 
-import com.luv2code.component.MvcTestingExampleApplication;
-import com.luv2code.component.dao.ApplicationDao;
-import com.luv2code.component.models.CollegeStudent;
-import com.luv2code.component.models.StudentGrades;
-import com.luv2code.component.service.ApplicationService;
+import com.techleads.app.MvcTestingExampleApplication;
+import com.techleads.app.models.CollegeStudent;
+import com.techleads.app.models.StudentGrades;
+import com.techleads.app.service.ApplicationService;
+import com.techleads.app.dao.ApplicationDao;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

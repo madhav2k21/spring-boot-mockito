@@ -1,8 +1,8 @@
-package com.luv2code.test;
+package com.techleads.app;
 
-import com.luv2code.component.MvcTestingExampleApplication;
-import com.luv2code.component.models.CollegeStudent;
-import com.luv2code.component.models.StudentGrades;
+import com.techleads.app.MvcTestingExampleApplication;
+import com.techleads.app.models.CollegeStudent;
+import com.techleads.app.models.StudentGrades;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

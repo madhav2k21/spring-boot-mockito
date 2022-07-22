@@ -1,15 +1,12 @@
-package com.luv2code.component.test;
+package com.techleads.app;
 
-import com.luv2code.component.MvcTestingExampleApplication;
-import com.luv2code.component.dao.ApplicationDao;
-import com.luv2code.component.models.CollegeStudent;
-import com.luv2code.component.models.StudentGrades;
-import com.luv2code.component.service.ApplicationService;
+import com.techleads.app.service.ApplicationService;
+import com.techleads.app.MvcTestingExampleApplication;
+import com.techleads.app.dao.ApplicationDao;
+import com.techleads.app.models.CollegeStudent;
+import com.techleads.app.models.StudentGrades;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.Spy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
