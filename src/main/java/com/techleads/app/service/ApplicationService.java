@@ -1,8 +1,8 @@
-package com.luv2code.component.service;
+package com.techleads.app.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.luv2code.component.dao.ApplicationDao;
+import com.techleads.app.dao.ApplicationDao;
 
 import java.util.List;
 

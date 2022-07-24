@@ -1,4 +1,4 @@
-package com.luv2code.component.models;
+package com.techleads.app.models;
 
 public class CollegeStudent implements Student {
     private Integer id;

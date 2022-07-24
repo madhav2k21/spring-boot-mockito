@@ -1,8 +1,8 @@
-package com.luv2code.component;
+package com.techleads.app;
 
-import com.luv2code.component.dao.ApplicationDao;
-import com.luv2code.component.models.CollegeStudent;
-import com.luv2code.component.service.ApplicationService;
+import com.techleads.app.service.ApplicationService;
+import com.techleads.app.dao.ApplicationDao;
+import com.techleads.app.models.CollegeStudent;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
